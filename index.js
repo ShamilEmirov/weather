@@ -98,11 +98,11 @@ for (let y = 0; y < 7; y++) {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    p.appendChild(data.daily.apparent_temperature_max[x]);
+                    p.innerHTML=data.daily.apparent_temperature_max[x];
                     // daily_apparent_temperature_max=Math.floor(daily_apparent_temperature_max)
                     // degree = document.createTextNode(daily_apparent_temperature_max);
                     console.log(data);
-                    console.log(daily_apparent_temperature_max);
+                    // console.log(daily_apparent_temperature_max);
                 })
                 .catch(error => {
                     console.error(error);

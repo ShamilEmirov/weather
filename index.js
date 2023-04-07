@@ -1,11 +1,13 @@
 // let region = ["Baki", "Gence", "Sumqayit", "Quba", "Lenkaran", "Masalli", "Naxcivan"]
+let daily_apparent_temperature_max;
 let url = "https://api.open-meteo.com/v1/forecast?latitude=40.38&longitude=49.89&hourly=temperature_2m&daily=weathercode,apparent_temperature_max,apparent_temperature_min&current_weather=true&timeformat=unixtime&start_date=2023-04-07&end_date=2023-04-13&timezone=auto";
 fetch(url)
     .then(response => response.json())
     .then(data => {
-        let current_weather = data.current_weather;
-        current_weather=Math.floor(current_weather)
+        daily_apparent_temperature_max = data.daily.apparent_temperature_max[3];
+        // daily_apparent_temperature_max=Math.floor(daily_apparent_temperature_max)
         console.log(data);
+        console.log(daily_apparent_temperature_max);
     })
     .catch(error => {
         console.error(error);
@@ -101,7 +103,7 @@ for (let y = 0; y < 7; y++) {
         // Baku.classList.add("mx-auto");
 
         let p = document.createElement("p");
-        let degree = document.createTextNode(c[item]);
+        let degree = document.createTextNode(daily_apparent_temperature_max);
         let p1 = document.createElement("p");
         p1.classList.add("fst-italic");
         p.classList.add("fw-bold");

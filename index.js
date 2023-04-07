@@ -1,17 +1,15 @@
 // let region = ["Baki", "Gence", "Sumqayit", "Quba", "Lenkaran", "Masalli", "Naxcivan"]
 let url = "https://api.open-meteo.com/v1/forecast?latitude=40.38&longitude=49.89&hourly=temperature_2m&daily=weathercode,apparent_temperature_max,apparent_temperature_min&current_weather=true&timeformat=unixtime&start_date=2023-04-07&end_date=2023-04-13&timezone=auto";
 fetch(url)
-.then(response => response.json())
-.then(data => {
-    
-
-    let current_weather = current_weather;
-    Math.floor(current_weather)
-    console.log(data);
-})
-.catch(error => {
-    console.error(error);
-});
+    .then(response => response.json())
+    .then(data => {
+        let current_weather = data.current_weather;
+        current_weather=Math.floor(current_weather)
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
 
 
 let c = [];
@@ -56,11 +54,10 @@ for (let y = 0; y < 7; y++) {
             i.classList.add("text-info");
         } else if (item >= 6 && item <= 15) {
             let ico = Math.floor(Math.random() * icon0_9.length);
-            if (ico==0){
+            if (ico == 0) {
                 i.classList.add(icon0_9[ico]);
                 i.classList.add("text-info-emphasis");
-            }
-            else{
+            } else {
                 i.classList.add(icon0_9[ico]);
                 i.classList.add("text-secondary-emphasis");
             }
@@ -98,7 +95,7 @@ for (let y = 0; y < 7; y++) {
         Baku.classList.add("pt-5");
         // Baku.classList.add("border");
         Baku.classList.add("border-dark");
-        
+
         let Baku5 = document.createElement("div");
         Baku5.classList.add("div5")
         // Baku.classList.add("mx-auto");
@@ -109,11 +106,11 @@ for (let y = 0; y < 7; y++) {
         p1.classList.add("fst-italic");
         p.classList.add("fw-bold");
         p1.classList.add("text-secondary");
-        let city = document.createTextNode(region[y]);
+        // let city = document.createTextNode(region[y]);
         Baku.appendChild(Baku5)
 
         p.appendChild(degree)
-        p1.appendChild(city)
+        // p1.appendChild(city)
         Baku.appendChild(p)
         Baku.appendChild(p1)
         box.appendChild(i);
